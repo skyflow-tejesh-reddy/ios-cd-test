@@ -14,6 +14,8 @@ jobs:
   deploy_private_pod:
     runs-on: macOS-latest
     steps:
+    - uses: actions/checkout@v2
+
     - name: bump version
       run: |
            chmod +x scripts/bump_version.sh
