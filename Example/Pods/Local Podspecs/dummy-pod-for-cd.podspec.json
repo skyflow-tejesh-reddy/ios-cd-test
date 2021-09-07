@@ -1,0 +1,22 @@
+{
+  "name": "dummy-pod-for-cd",
+  "version": "0.1.0",
+  "summary": "A short description of dummy-pod-for-cd.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Tejesh Reddy/dummy-pod-for-cd",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tejesh Reddy": "tejesh.allampati@skyflow.com"
+  },
+  "source": {
+    "git": "https://github.com/Tejesh Reddy/dummy-pod-for-cd.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "dummy-pod-for-cd/Classes/**/*"
+}
