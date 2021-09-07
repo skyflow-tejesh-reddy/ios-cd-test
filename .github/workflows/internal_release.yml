@@ -1,10 +1,14 @@
 on:
   push:
-    branches:
-      master
+    tags-ignore:
+      - *.*
     paths-ignore:
-      CHANGELOG.md
-      dummy-pod-for-cd.podspec
+      - *.md
+      - dummy-pod-for-cd.podspec
+      - LICENSE
+    branches:
+      - main
+
 
 jobs:
   deploy_private_pod:
