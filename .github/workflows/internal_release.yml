@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+      master
+    paths-ignore:
+      CHANGELOG.md
+      dummy-pod-for-cd.podspec
+
+jobs:
+  deploy_private_pod:
+    runs-on: macOS-latest
+    steps:
+    - name: bump version
+      run: |
+           chmod +x scripts/bump_version.sh
+           ./scripts/bump_version.sh $(git rev-parse --short "$GITHUB_SHA")
+           
+    - name: commit changes
+      run: |
+           git config user.name "skyflow-tejesh-reddy"
+           git config user.email "tejesh.skyflow@gmail.com"
+           git add dummy-pod-for-cd.podspec
+           git commit -m "[AUTOMATED] Private Release"
+           git push origin main
+
+    - name: Push updated spec file
+      run: |
+           pod repo add private_spec
+           pod repo push private_spec ./dummy-pod-for-cd.podspec
+           echo "Published as Private pod
