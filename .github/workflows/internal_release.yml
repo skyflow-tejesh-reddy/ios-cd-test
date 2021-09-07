@@ -19,11 +19,17 @@ jobs:
       
     - name: list scripts
       run: ls -l ./scripts
+      
+    - name: 'Get Previous tag'
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: 1.0.0
 
     - name: bump version
       run: |
            chmod +x ./scripts/bump_version.sh
-           ./scripts/bump_version.sh "$(git describe --tags --abbrev=0).$(git rev-parse --short "$GITHUB_SHA")"
+           ./scripts/bump_version.sh "${{ steps.previoustag.outputs.tag }}.$(git rev-parse --short "$GITHUB_SHA")"
     - name: tags
       run: git tag
     
