@@ -1,12 +1,11 @@
-
 class Dummy {
-    internal var dummyvar: String!
+    var dummyvar: String!
     
-    internal func init(dvar: String!) {
+    internal init(dvar: String!) {
         self.dummyvar = dvar
     }
     
-    internal printD() {
-        print("Printing the dummy: ", dummyvar)
+    internal func printD() {
+        print("Printing the dummy: ", dummyvar as Any)
     }
 }
