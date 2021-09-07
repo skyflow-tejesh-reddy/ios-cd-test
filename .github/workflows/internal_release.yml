@@ -15,10 +15,16 @@ jobs:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
+    
+    - name: list dirs
+      run: ls -l .
+      
+    - name: list scripts
+      run: ls -l ./scripts
 
     - name: bump version
       run: |
-           chmod +x scripts/bump_version.sh
+           chmod +x ./scripts/bump_version.sh
            ./scripts/bump_version.sh $(git rev-parse --short "$GITHUB_SHA")
            
     - name: commit changes
