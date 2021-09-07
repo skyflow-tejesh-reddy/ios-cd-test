@@ -33,9 +33,6 @@ jobs:
     - name: tags
       run: git tag
     
-    - name: recent tag
-      run: git describe --tags --abbrev=0
-    
     - name: commit changes
       run: |
            git config user.name "skyflow-tejesh-reddy"
