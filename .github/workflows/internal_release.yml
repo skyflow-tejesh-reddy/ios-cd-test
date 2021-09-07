@@ -3,9 +3,7 @@ on:
     tags-ignore:
       - '*.*'
     paths-ignore:
-      - '*.md'
-      - dummy-pod-for-cd.podspec
-      - LICENSE
+      - "dummy-pod-for-cd.podspec"
     branches:
       - main
 
