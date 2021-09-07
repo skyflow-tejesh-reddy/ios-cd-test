@@ -1,7 +1,7 @@
 on:
   push:
     tags-ignore:
-      - *.*
+      - '*.*'
     paths-ignore:
       - *.md
       - dummy-pod-for-cd.podspec
