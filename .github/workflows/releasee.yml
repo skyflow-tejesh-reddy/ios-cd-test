@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Get refs
+      run: echo "${{ GITHUB_REF }}"
+    
     - name: Get the tag name
       run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
       
