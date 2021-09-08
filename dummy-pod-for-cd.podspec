@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "9.0"
   spec.ios.deployment_target = "9.0"
 
-  spec.source       = { :git => "https://github.com/skyflow-tejesh-reddy/ios-cd-test.git", :commit => "94847fd" }
+  spec.source       = { :git => "https://github.com/skyflow-tejesh-reddy/ios-cd-test.git", :commit => "7bede7d" }
 
   spec.source_files  = "dummy-pod-for-cd/Classes/**/*.{swift}"
 
