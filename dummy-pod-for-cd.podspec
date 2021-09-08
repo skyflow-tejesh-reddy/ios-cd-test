@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "dummy-pod-for-cd"
 
-  spec.version      = "0.1.4.24d9eee"
+  spec.version      = "v0.34.5.242ece5"
   
   spec.summary      = "dummy-pod"
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "9.0"
 
 
-  spec.source       = { :git => "https://github.com/skyflow-tejesh-reddy/ios-cd-test.git", :commit => "24d9eee" }
+  spec.source       = { :git => "https://github.com/skyflow-tejesh-reddy/ios-cd-test.git", :commit => "242ece5" }
 
 
   spec.source_files  = "dummy-pod-for-cd/Classes/**/*.{swift}"
