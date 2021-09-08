@@ -43,6 +43,6 @@ jobs:
 
     - name: Push updated spec file
       run: |
-           pod repo add private_spec
+           pod repo add private_spec git@github.com:skyflow-tejesh-reddy/test-pod-private-spec.git
            pod repo push private_spec ./dummy-pod-for-cd.podspec
            echo "Published as Private pod
