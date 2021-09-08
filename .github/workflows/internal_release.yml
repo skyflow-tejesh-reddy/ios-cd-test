@@ -13,12 +13,6 @@ jobs:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
-    
-    - name: list dirs
-      run: ls -l .
-      
-    - name: list scripts
-      run: ls -l ./scripts
       
     - name: Get Previous tag
       id: previoustag
@@ -26,16 +20,16 @@ jobs:
       with:
         fallback: 1.0.0
 
-    - name: bump version
+    - name: Bump Version
       run: |
            chmod +x ./scripts/bump_version.sh
-           ./scripts/bump_version.sh "${{ steps.previoustag.outputs.tag }}.$(git rev-parse --short "$GITHUB_SHA")"
+           ./scripts/bump_version.sh "${{ steps.previoustag.outputs.tag }}" "$(git rev-parse --short "$GITHUB_SHA")"
     - name: Add SSH key to Agent
       uses: webfactory/ssh-agent@v0.5.3
       with:
         ssh-private-key: ${{ secrets.SSH_SECRET_KEY }}
     
-    - name: commit changes
+    - name: Commit changes
       run: |
            git config user.name "skyflow-tejesh-reddy"
            git config user.email "tejesh.skyflow@gmail.com"
@@ -47,4 +41,4 @@ jobs:
       run: |
            pod repo add private_spec git@github.com:skyflow-tejesh-reddy/test-pod-private-spec.git
            pod repo push private_spec ./dummy-pod-for-cd.podspec
-           echo "Published as Private pod
+           echo "Published as Private pod"
