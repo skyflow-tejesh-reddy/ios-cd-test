@@ -1,6 +1,7 @@
-echo "Bumping pod version to v$1.$2"
+echo "Bumping pod version to $1.$2"
 
-
+version=$1
+SEMVER=${version:1}
 
 sed -E "s/spec.version .+/spec.version      = \"$1.$2\"/g" "./dummy-pod-for-cd.podspec" > tempfile
 
@@ -8,5 +9,5 @@ sed -E "s/:commit => \".+\"/:commit => \"$2\"/g" tempfile > "./dummy-pod-for-cd.
 
 
 echo --------------------------
-echo Done, Pod now at v$1.$2
+echo "Done, Pod now at $1.$2"
 
