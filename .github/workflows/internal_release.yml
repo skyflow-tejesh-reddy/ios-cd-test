@@ -39,6 +39,7 @@ jobs:
            git config user.email "tejesh.skyflow@gmail.com"
            git add dummy-pod-for-cd.podspec
            git commit -m "[AUTOMATED] Private Release"
+           git push origin main
 
     - name: Push updated spec file
       run: |
