@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "dummy-pod-for-cd"
-  spec.version      = "1.0.0.7e785cc.d9aa213"
+  spec.version      = "1.0.0.c2a6644e785cc.d9aa213"
   spec.summary      = "dummy-pod"
 
   spec.description  = "dummy-pod for testing cd"
