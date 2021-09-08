@@ -30,8 +30,10 @@ jobs:
       run: |
            chmod +x ./scripts/bump_version.sh
            ./scripts/bump_version.sh "${{ steps.previoustag.outputs.tag }}.$(git rev-parse --short "$GITHUB_SHA")"
-    - name: tags
-      run: git tag
+    - name: Add SSH key to Agent
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_SECRET_KEY }}
     
     - name: commit changes
       run: |
