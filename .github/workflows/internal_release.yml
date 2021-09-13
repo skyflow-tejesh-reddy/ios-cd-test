@@ -30,15 +30,15 @@ jobs:
            ./scripts/bump_version.sh "${{ steps.previoustag.outputs.tag }}" "$(git rev-parse --short "$GITHUB_SHA")"
     
     - name: Commit changes
+      env:
+        VERSION: "${{ steps.previoustag.outputs.tag }}.$(git rev-parse --short "$GITHUB_SHA")"
       run: |
            git config user.name ${{ github.actor }}
            git config user.email ${{ github.actor }}@users.noreply.github.com
            git add dummy-pod-for-cd.podspec
            git commit -m "[AUTOMATED] Private Release $VERSION"
            git push origin main
-      env:
-        VERSION: "${{ steps.previoustag.outputs.tag }}.$(git rev-parse --short "$GITHUB_SHA")"
-    
+          
     - name: Add SSH key to Agent
       uses: webfactory/ssh-agent@v0.5.3
       with:
